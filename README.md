@@ -1,0 +1,3 @@
+# WordSolve Setup Guide
+
+Step-by-step deployment instructions...
