@@ -1,0 +1,17 @@
+steps:
+  - name: 'gcr.io/cloud-builders/git'
+    args: ['clone', 'https://github.com/YOUR_USERNAME/wordsolve-ai.git']
+
+  # Install dependencies
+  - name: 'node:16'
+    entrypoint: 'bash'
+    args: ['-c', 'npm install && npm run build']
+
+  # Deploy to Vercel
+  - name: 'vercel/vercel'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - |
+        echo "Deploying to Vercel..."
+        vercel --token YOUR_VERCEL_TOKEN --prod --confirm
